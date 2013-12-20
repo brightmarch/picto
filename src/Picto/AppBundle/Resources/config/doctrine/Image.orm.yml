@@ -1,0 +1,70 @@
+Picto\AppBundle\Entity\Image:
+    type: entity
+    table: image
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: SEQUENCE
+            sequenceGenerator:
+                sequenceName: image_id_seq 
+                allocationSize: 1
+                initialValue: 1 
+    fields:
+        createdAt:
+            column: created_at
+            type: datetime
+        updatedAt:
+            column: updated_at
+            type: datetime
+        status:
+            column: status
+            type: integer
+        rawHash:
+            column: raw_hash
+            type: string
+        hash:
+            column: hash
+            type: string
+        fileName:
+            column: file_name
+            type: string 
+        fileSize:
+            column: file_size
+            type: string 
+        fileExtension:
+            column: file_extension
+            type: string 
+        width:
+            column: width
+            type: integer
+        height:
+            column: height
+            type: integer
+        contentType:
+            column: content_type
+            type: string
+        uploadTime:
+            column: upload_time
+            type: integer
+        memoryUsage:
+            column: memory_usage
+            type: decimal
+        remoteUrl:
+            column: remote_url
+            type: string
+            nullable: true
+        viewCount:
+            column: view_count
+            type: integer
+        filePath:
+            column: file_path
+            type: string
+            nullable: true
+        jobId:
+            column: job_id
+            type: string
+            nullable: true
+    lifecycleCallbacks:
+        prePersist: [onCreate]
+        preUpdate: [onUpdate]

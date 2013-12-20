@@ -1,0 +1,17 @@
+Picto\AppBundle\Entity\ComputerUpload:
+    properties:
+        image:
+            - NotBlank:
+                message: "Please select an image to upload."
+            - Image:
+                maxSize: 8M
+                maxSizeMessage: "Please upload an image {{ limit }}{{ suffix }} in size or less."
+                mimeTypes: [image/jpeg, image/jpg, image/png, image/gif]
+                mimeTypesMessage: "Please upload a valid image."
+                uploadIniSizeErrorMessage: "Please upload an image {{ limit }}{{ suffix }} in size or less."
+
+Picto\AppBundle\Entity\UrlUpload:
+    properties:
+        url:
+            - Picto\AppBundle\Validator\Constraints\UrlImage:
+                message: "Please paste a valid image URL to upload."

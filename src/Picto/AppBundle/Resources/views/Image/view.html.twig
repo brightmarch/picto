@@ -1,0 +1,22 @@
+{% extends 'PictoAppBundle::layout.html.twig' %}
+
+{% block body %}
+    <div id="image-details">
+        <div class="logo">
+            <a href="{{ path('picto_app_index') }}">
+                <img src="{{ asset('bundles/pictoapp/images/picto-logo-white-2x.png') }}">
+            </a>
+        </div>
+
+        <div class="image-file-name">{{ image.getFileName }}</div>
+        <div class="image-view-count">
+            {{ image.getViewCount }} {{ 1 == image.getViewCount ? 'view' : 'views' }}
+        </div>
+    </div>
+
+    <div id="image">
+        <a href="{{ path('picto_app_view_raw_image', { 'hash': image.getHash, 'extension': image.getFileExtension }) }}">
+            <img src="{{ path('picto_app_view_raw_image', { 'hash': image.getHash, 'extension': image.getFileExtension, 'noCount': 1 }) }}">
+        </a>
+    </div>
+{% endblock %}

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+php app/console doctrine:fixtures:load --env=test --no-interaction --quiet
+php phpunit.phar -d memory_limit=512M -c app $*

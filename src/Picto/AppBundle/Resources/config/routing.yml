@@ -1,0 +1,16 @@
+picto_app_index:
+    pattern: /
+    defaults: { _controller: PictoAppBundle:Index:index }
+
+picto_app_view_raw_image:
+    pattern: /i/{hash}.{extension}
+    defaults: { _controller: PictoAppBundle:Image:viewRaw }
+
+picto_app_view_image:
+    pattern: /i/{hash}
+    defaults: { _controller: PictoAppBundle:Image:view }
+
+picto_app_upload_image:
+    pattern: /upload
+    defaults: { _controller: PictoAppBundle:Image:upload }
+    methods: [POST]

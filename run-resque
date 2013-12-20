@@ -1,0 +1,3 @@
+#!/bin/bash
+
+VVERBOSE=1 QUEUE=upload APP_INCLUDE=vendor/autoload.php INTERVAL=5 php vendor/chrisboulton/php-resque/resque.php

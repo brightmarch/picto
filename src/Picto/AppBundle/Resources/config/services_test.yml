@@ -1,0 +1,12 @@
+parameters:
+    picto_test_image_path: %kernel.root_dir%/Resources/tests/picto-logo-2x.png
+    picto_test_image_mime_type: image/jpeg
+    picto_test_image_extension: jpeg
+    picto_test_image_hash: _test_image
+    picto_test_image_raw_hash: _test_image_raw_hash
+
+services:
+    # External Services
+    picto_app.aws:
+        class: Picto\AppBundle\Library\Tests\AwsClient
+

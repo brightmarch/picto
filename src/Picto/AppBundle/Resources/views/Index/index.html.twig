@@ -1,0 +1,59 @@
+{% extends 'PictoAppBundle::layout.html.twig' %}
+
+{% block body %}
+    {{ include('PictoAppBundle:Partials:_header.html.twig') }}
+
+    <main>
+        <section>
+            <div id="upload">
+                {% if image and image.isEnabled %}
+                    <div id="upload-results">
+                        <p class="description">your image</p>
+                        <section>
+                            <div class="large-6 columns">
+                                <input type="text" value="{{ url('picto_app_view_image', { hash: image.getHash }) }}" onclick="this.select()">
+                            </div>
+                            <div class="large-6 columns">
+                                <a href="{{ path('picto_app_view_image', { hash: image.getHash }) }}">{{ url('picto_app_view_image', { hash: image.getHash }) }}</a>
+                            </div>
+                        </section>
+                    </div>
+                {% endif %}
+
+                <p class="description">upload your image below</p>
+
+                <form method="post" action="{{ path('picto_app_upload_image') }}" id="upload-computer" enctype="multipart/form-data" novalidate>
+                    <div class="row">
+                        <div class="large-8 columns">
+                            {{ form_widget(computerUploadForm.image) }}
+                            {{ form_errors(computerUploadForm.image) }}
+                        </div>
+                        <div class="large-4 columns text-right">
+                            {{ form_rest(computerUploadForm) }}
+                            <input type="submit" value="Upload From Computer" id="submit-computer" class="button small radius expand">
+                        </div>
+                    </div>
+                </form>
+
+                <form method="post" action="{{ path('picto_app_upload_image') }}" id="upload-url" novalidate>
+                    <div class="row">
+                        <div class="large-8 columns">
+                            {{ form_widget(urlUploadForm.url, { attr: { placeholder: 'Paste Image URL' }}) }}
+                            {{ form_errors(urlUploadForm.url) }}
+                        </div>
+                        <div class="large-4 columns text-right">
+                            {{ form_rest(urlUploadForm) }}
+                            <input type="submit" value="Upload From URL" id="submit-url" class="button small radius expand">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <p class="open-source">
+        Picto is Open Source! Learn <a href="https://github.com/brightmarch/picto">more on GitHub</a>.
+    </p>
+
+    {{ include('PictoAppBundle:Partials:_footer.html.twig') }}
+{% endblock %}

@@ -1,0 +1,13 @@
+<?php
+
+return [
+    'includes' => ['_aws'],
+    'services' => [
+        'default_settings' => [
+            'params' => [
+                'key' => '@@AWS_KEY@@',
+                'secret' => '@@AWS_SECRET@@'
+            ]
+        ]
+    ]
+];

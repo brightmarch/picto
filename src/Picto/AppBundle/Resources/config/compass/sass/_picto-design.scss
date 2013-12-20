@@ -1,0 +1,181 @@
+$light-primary-color: lighten($primary-color, 60%);
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+header {
+    margin-bottom: emCalc($em-base * 3);
+
+    h1, h4 {
+        text-align: center;
+    }
+}
+
+main {
+    background: $primary-color;
+    margin-bottom: emCalc($em-base * 2);
+    padding: emCalc($em-base * 3, 0, $em-base * 3, 0);
+
+    h1, h2, h3, h4, h5, h6, p, ul, li, ol {
+        color: lighten($primary-color, 100%);
+    }
+}
+
+section {
+    #upload {
+        .description {
+            color: $light-primary-color;
+            font-weight: bold;
+            font-size: emCalc(14);
+            margin-bottom: emCalc($em-base / 2);
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        form {
+            background-color: lighten($primary-color, 100%);
+            border-radius: .25em;
+            margin: 0;
+            padding: .5em;
+
+            input, input[type="text"], .button {
+                font-weight: normal;
+                margin-bottom: 0;
+            }
+
+            ul {
+                margin: 0;
+
+                li {
+                    color: $alert-color;
+                    font-size: emCalc(12);
+                    list-style-type: none;
+                }
+            }
+
+            &#upload-computer {
+                margin-bottom: emCalc($em-base);
+            }
+        }
+
+        #upload-results {
+            margin-bottom: emCalc($em-base);
+
+            a {
+                color: lighten($primary-color, 100%);
+                line-height: emCalc(38);
+            }
+
+            input {
+                border: 0;
+                border-radius: .25em;
+                padding: 8px;
+                width: 100%;
+            }
+        }
+
+        @extend .large-8;
+        @extend .large-centered;
+        @extend .columns;
+    }
+
+    #page, #image {
+        @extend .large-12;
+        @extend .columns;
+    }
+
+    #image {
+        text-align: center;
+
+        h4 {
+            text-align: left;
+        }
+
+        img {
+            max-width: $row-width - $column-gutter;
+        }
+    }
+
+    #image-details {
+        color: lighten($primary-color, 100%);
+        margin-top: emCalc(16);
+    }
+
+    @extend .row;
+}
+
+footer {
+    font-size: emCalc(11);
+    text-align: center;
+}
+
+input {
+    border-radius: .25em;
+}
+
+// Image viewing page
+#image-details {
+    $line-height: 32px;
+
+    background: rgba(0, 0, 0, 0.5);
+    color: lighten($primary-color, 100%);
+    padding: emCalc($em-base / 2);
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+
+    .logo {
+        float: left;
+        margin-right: emCalc($em-base);
+
+        img {
+            width: 100px;
+        }
+    }
+
+    .image-file-name {
+        float: left;
+        line-height: $line-height;
+    }
+
+    .image-view-count {
+        float: right;
+        line-height: $line-height;
+    }
+}
+
+#image {
+    text-align: center;
+    width: 100%;
+
+    img {
+        max-width: 100%;
+    }
+}
+
+.open-source {
+    text-align: center;
+}
+
+@media screen and (max-width: $small-screen) {
+    section {
+        #upload {
+            form {
+                input[type="file"], input[type="text"] {
+                    margin-bottom: emCalc($em-base);
+                }
+
+                .button {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    #image-details {
+        .image-file-name {
+            display: none;
+        }
+    }
+}

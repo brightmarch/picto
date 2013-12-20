@@ -1,0 +1,4 @@
+picto_app:
+    resource: "@PictoAppBundle/Resources/config/routing.yml"
+    prefix:   /
+

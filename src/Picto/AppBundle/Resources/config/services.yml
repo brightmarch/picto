@@ -1,0 +1,31 @@
+parameters:
+
+services:
+    # External Services
+    picto_app.aws:
+        class: Aws\Common\Aws
+        factory_class: Aws\Common\Aws
+        factory_method: factory
+        arguments: [%aws_config_path%]
+
+    picto_app.http_client:
+        class: Guzzle\Http\Client
+
+    picto_app.cache:
+        class: Redis
+        calls:
+            - [connect, [%redis_host%, %redis_port%]]
+
+    picto_app.image_editor:
+        class: Intervention\Image\Image
+
+    # Internal Services
+    picto_app.image_cacher:
+        class: Picto\AppBundle\Library\ImageCacher
+        arguments: [@picto_app.cache]
+
+    picto_app.validator.url_image:
+        class: Picto\AppBundle\Validator\Constraints\UrlImageValidator
+        arguments: [@service_container]
+        tags:
+            - { name: validator.constraint_validator, alias: url_image }

@@ -1,0 +1,33 @@
+parameters:
+    database_driver: "pdo_pgsql"
+    database_host: "@@DB_SETTINGS_HOST@@"
+    database_port: ~
+    database_name: "@@DB_SETTINGS_DATABASE@@"
+    database_user: "@@DB_SETTINGS_USERNAME@@"
+    database_password: "@@DB_SETTINGS_PASSWORD@@"
+
+    mailer_transport: smtp
+    mailer_host: "@@MAILER_HOST@@"
+    mailer_user: "@@MAILER_USERNAME@@"
+    mailer_password: "@@MAILER_PASSWORD@@"
+
+    locale: en
+    secret: "@@SECRET@@"
+
+    redis_host: "@@REDIS_HOST@@"
+    redis_port: "@@REDIS_PORT@@"
+    resque_dsn: "@@REDIS_HOST@@:@@REDIS_PORT@@"
+
+    asset_base_url: "@@ASSET_BASE_URL@@"
+
+    aws_config_path: "@@AWS_CONFIG_PATH@@"
+
+    image_directory: "@@IMAGE_DIRECTORY@@"
+    image_bucket: "@@IMAGE_BUCKET@@"
+    image_not_found_hash: "_not_found"
+    image_not_found_path: "%kernel.root_dir%/Resources/data/not-found.png"
+    image_not_found_extension: "png"
+    image_not_found_mime_type: "image/png"
+
+    build_date: "@@BUILD_DATE@@"
+    build_timestamp: "@@BUILD_TIMESTAMP@@"
