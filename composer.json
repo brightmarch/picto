@@ -1,6 +1,6 @@
 {
     "name": "brightmarch/picto",
-    "license": "Proprietary",
+    "license": "MIT",
     "type": "project",
     "description": "Simple Image Sharing",
     "autoload": {
