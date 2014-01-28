@@ -4,7 +4,7 @@ WORKERS = 4
 WORKERS.times do |i|
   God.watch do |w|
       w.dir = "#{APP_ROOT}"
-      w.name = "worker-#{i}"
+      w.name = "picto-#{i}"
       w.group = "picto"
       w.uid = "deploy"
       w.gid = "deploy"
