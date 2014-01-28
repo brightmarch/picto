@@ -1,10 +1,10 @@
 APP_ROOT = File.expand_path('../../', File.dirname(__FILE__))
-WORKERS = 8
+WORKERS = 4
 
 WORKERS.times do |i|
   God.watch do |w|
       w.dir = "#{APP_ROOT}"
-      w.name = "picto-worker-#{i}"
+      w.name = "worker-#{i}"
       w.group = "picto"
       w.uid = "deploy"
       w.gid = "deploy"
